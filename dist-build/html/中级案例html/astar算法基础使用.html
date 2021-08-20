@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>astar算法</title>
+  <style>
+    body,html,ul,li {
+      margin: 0;
+      padding: 0;
+    }
+    ul,li {
+      list-style: none;
+    }
+    
+    #map {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 50px auto;
+    } 
+    li {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 38px;
+      /* border: 1px solid #FF5722; */
+      margin: 5;
+    }
+    #first-li{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      transition: all 0.3s;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      position:absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+
+    }
+  </style>
+</head>
+<body>
+  <ul id="map">
+    <li id="first-li">
+      <img src="./image/image.png" alt="">
+    </li>
+  </ul>
+</body>
+<script src="./js/astar.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

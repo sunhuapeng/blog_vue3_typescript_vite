@@ -1,0 +1,32 @@
+{
+  "name": "project-name",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "staging": "vite build --mode staging"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@vitejs/plugin-vue": "^1.2.4",
+    "@vitejs/plugin-vue-jsx": "^1.1.6",
+    "highlight.js": "^10.7.3",
+    "marked": "^3.0.0",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "three": "^0.130.1",
+    "tools-sj": "^1.0.5",
+    "vite-plugin-md": "^0.10.0",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/marked": "^2.0.4",
+    "@types/node": "^15.12.5",
+    "@types/three": "^0.130.1",
+    "@vitejs/plugin-legacy": "^1.4.4",
+    "@vue/compiler-sfc": "^3.0.4",
+    "vite": "2.0.4"
+  }
+}

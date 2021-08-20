@@ -1,0 +1,23 @@
+.side-bar {
+  width: 340px;
+  height: 100%;
+  overflow: auto;
+  background: #ffffff;
+  border-right: rgb(232, 232, 232);
+  li {
+    position: relative;
+    cursor: pointer;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    p {
+      cursor: pointer;
+    }
+    &.active {
+      color: #007fff;
+    }
+    &:hover {
+      background-color: #fafafa;
+      color: #007fff;
+    }
+  }
+}

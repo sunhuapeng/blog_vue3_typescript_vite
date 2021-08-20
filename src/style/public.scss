@@ -1,0 +1,101 @@
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  #app {
+    width: 100%;
+    background-color: #f4f5f5;
+    overflow-y: scroll;
+   height: 100%;
+    color: #71777c;
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: 'PuHuiTi', 'Heiti SC', 'Arial', 'Microsoft YaHei', '黑体', '宋体',
+    sans-serif;
+}
+
+:focus {
+  outline: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+textarea,
+input {
+  outline: none;
+}
+
+img {
+  border: none;
+  user-select: none;
+}
+
+.iconfont {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-family: 'PuHuiTi';
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ffffff;
+  font-family: 'PuHuiTi';
+}
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ffffff;
+  font-family: 'PuHuiTi';
+}
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #ffffff;
+  font-family: 'PuHuiTi';
+}
+
+.ellipsis{
+  white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+}

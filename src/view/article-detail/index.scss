@@ -1,0 +1,95 @@
+.mark-down {
+  position: relative;
+
+  & > div:not(.md-nav) {
+    width: 780px;
+    color: #333;
+    margin: auto;
+    padding: 18px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    blockquote {
+      color: #666;
+      padding: 1px 12px;
+      margin: 22px 0;
+      border-left: 4px solid #cbc;
+      word-break: break-word;
+      line-height: 1!important;
+      font-weight: 400;
+      font-size: 15px;
+      background: rgb(248, 248, 248);
+    }
+    pre {
+      background: #f8f8f8;
+    }
+    img {
+      max-width: 100%;
+    }
+    pre {
+      overflow: auto;
+    }
+    p > code {
+      background-color: #fff5f5;
+      color: #ff502c;
+      word-break: break-word;
+      border-radius: 2px;
+      font-size: 0.87em;
+    }
+    & > div > *:not(pre) {
+      word-break: break-all;
+      white-space: pre-wrap;
+      line-height: 46px;
+    }
+    pre {
+      line-height: 24px;
+    }
+  }
+  .md-nav {
+    position: fixed;
+    top: 0;
+    right: calc((100vw - 780px) / 2 - 260px - 16px);
+    width: 260px;
+    li {
+      height: 26px;
+      width: 100%;
+      &.menu {
+        font-weight: 900;
+      }
+      position: relative;
+      a:after {
+        content: "";
+        display: block;
+        left: 0px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: rgb(113, 119, 124);
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+      }
+      a {
+        display: block;
+        text-decoration: none;
+        padding-left: 36px;
+        cursor: pointer;
+        width: 100%;
+        line-height: 26px;
+        position: relative;
+        padding: 4px 0 4px 12px;
+        color: inherit;
+        font-size: 14px;
+      }
+      &:hover {
+        background: #ebedef;
+      }
+      &.active a {
+        color: #007fff;
+        &::after {
+          background-color: #007fff;
+        }
+      }
+    }
+  }
+}
