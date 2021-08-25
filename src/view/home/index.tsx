@@ -1,23 +1,27 @@
-import { defineComponent, reactive} from "vue";
+import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
+// import RobotView from '../three'
 import RobotView from '../three/robot'
+import './style.scss'
 export default defineComponent({
   name: 'Home',
   path: '/home',
   isRouter: true,
-  components:{
+  components: {
     RobotView
   },
   setup() {
     const router = useRouter()
-    const toarticle = ()=>{
+    const toarticle = () => {
       router.push({
         path: '/articles',
       })
     }
     return () => (
       <>
-        <p class="w" onClick={()=>toarticle()}>首页</p>
+        <div class="home-view">
+          <robot-view></robot-view>
+        </div>
       </>
     )
   }
