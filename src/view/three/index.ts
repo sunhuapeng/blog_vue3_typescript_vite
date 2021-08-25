@@ -1,5 +1,9 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
+import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader'
+var loader  = new GLTFLoader()
+loader.setDRACOLoader(new DRACOLoader());
 
 let width = window.innerWidth
 let height = window.innerHeight
@@ -66,6 +70,8 @@ export function init(id: string) {
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
   const cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
-
+  // loader.load('../../../public/model/car.glb', (glb)=>{
+  //   console.log(glb)
+  // })
   window.addEventListener("resize", onWindowResize, false);
 }
