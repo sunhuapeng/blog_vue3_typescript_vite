@@ -1,4 +1,7 @@
 #view {
-  width: 100%;
+  width: 100vh;
   height: 100vh;
+  overflow: hidden;
+  border-radius: 100vh;
+  margin: auto;
 }
