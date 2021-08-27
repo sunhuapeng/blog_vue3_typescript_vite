@@ -16,7 +16,7 @@ export default defineComponent({
       router: '/html'
     }, {
       name: '商场案例',
-      router: '/html'
+      router: '/market'
     }, {
       name: '迷宫案例',
       router: '/maze'
