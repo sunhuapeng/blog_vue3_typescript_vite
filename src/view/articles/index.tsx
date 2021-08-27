@@ -12,7 +12,7 @@ export default defineComponent({
   isRouter: true,
   path: '/articles',
   components: {
-    SideBar
+    SideBar,
   },
   setup() {
     const store = useStore()

@@ -2,6 +2,10 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { DDSLoader } from 'three/examples/jsm/loaders/DDSLoader.js';
+import {
+  CSS2DObject,
+  CSS2DRenderer
+} from 'three/examples/jsm/renderers/CSS2DRenderer.js'
 
 var manager = new THREE.LoadingManager();
 manager.addHandler(/\.dds$/i, new DDSLoader());
@@ -28,11 +32,14 @@ var scene = new THREE.Scene(), // 场景
   renderer = new THREE.WebGLRenderer({ // 渲染器
     antialias: true, //抗锯齿
   }),
-  container = null, // dom容器
+  container = null as any, // dom容器
   controls: any,
   lightGroup = new THREE.Group(),
   elementGroup = new THREE.Group(),
-  elementLGroup = new THREE.Group()
+  elementLGroup = new THREE.Group(),
+  moveY = 0 as number,
+  moveX = 0 as number,
+  labelRenderer = null as any
 renderer.shadowMap.enabled = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 
@@ -41,8 +48,6 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 var sceneL = new THREE.Scene()
 
 scene.add(lightGroup)
-// sceneL.add(lightGroup)
-
 scene.add(elementGroup)
 sceneL.add(elementLGroup)
 
@@ -123,31 +128,41 @@ const initLight = function () {
 const render = function () {
   const time = Date.now() * 0.0005;
   controls.update(); //更新控制器
+
   // 移动灯光
   if (dirLight) {
 
-    dirLight.position.x = Math.cos(time * 0.1) * 10;
-    dirLight.position.z = Math.sin(time * 0.1) * 10;
+    dirLight.position.x = Math.cos(time * 0.1) * 15;
+    dirLight.position.z = Math.sin(time * 0.1) * 15;
 
-    pointLight.position.x = Math.cos(time * 0.1) * 10;
-    pointLight.position.z = Math.sin(time * 0.1) * 10;
+    pointLight.position.x = Math.cos(time * 0.1) * 15;
+    pointLight.position.z = Math.sin(time * 0.1) * 15;
   }
 
-  // camera.position.x = Math.abs(Math.cos(time * 0.2)) * 2
-  // camera.updateProjectionMatrix()
+  camera.position.x = Math.abs(Math.cos(time * 0.2)) * 2
+  camera.updateProjectionMatrix()
 
   // 移动透视场景
   if (deerR && sceneL) {
     renderer.setScissor(0, 0, width, height);
     renderer.render(scene, camera);
-    const w = width / 5
+    const w = width / 3
 
-    let l = 0
-    l = Math.abs(Math.floor(Math.sin(time * 0.05) * width * 100) / 100) - (w / 2)
-    renderer.setScissor(l, 0, w, height);
+    renderer.setScissor(moveX - w / 2, height - moveY - w / 2, w, w);
     renderer.render(sceneL, camera);
 
+    labelRenderer.render(sceneL, camera);
   }
+}
+
+// 初始化2d渲染器
+const render2d = function () {
+  labelRenderer = new CSS2DRenderer();
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.domElement.style.position = "absolute";
+  labelRenderer.domElement.style.top = "0";
+  labelRenderer.domElement.style.pointerEvents = "none";
+  container.appendChild(labelRenderer.domElement);
 }
 
 // 创建基础的场景
@@ -174,8 +189,11 @@ const ready = function (id: string) {
     camera,
     canvasDom
   );
-  var axesHelper = new THREE.AxesHelper(250);
-  scene.add(axesHelper);
+  controls.enabled = false
+
+  // var axesHelper = new THREE.AxesHelper(250);
+  // scene.add(axesHelper);
+  render2d()
   animate()
 }
 
@@ -415,9 +433,22 @@ const deer = async function () {
   elementLGroup.add(deerR)
 }
 
+// 鼠标移动事件
+const mouseMove = function (event: any) {
+  const y = event.pageY
+  const x = event.pageX - ((window.innerWidth - width) / 2)
+  moveX = x
+  moveY = y
+}
+
 const init = async function (id: string) {
   ready(id)
   await pushElement()
+
+  window.removeEventListener("mousemove", mouseMove)
+  window.removeEventListener("resize", onWindowResize)
+
+  window.addEventListener("mousemove", mouseMove, false);
   window.addEventListener("resize", onWindowResize, false);
 }
 export default init

@@ -1,0 +1,14 @@
+.page-nav.label {
+  position: fixed;
+  bottom: calc(100vh / 2 - 100px);
+  right: 18px;
+  top: inherit;
+  li {
+    background: #ffffff;
+    padding: 3px 8px;
+    cursor: pointer;
+    &~li {
+      margin-top: 12px;
+    }
+  }
+}
