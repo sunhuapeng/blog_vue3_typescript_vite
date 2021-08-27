@@ -3,7 +3,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { DDSLoader } from 'three/examples/jsm/loaders/DDSLoader.js';
 import {
-  CSS2DObject,
   CSS2DRenderer
 } from 'three/examples/jsm/renderers/CSS2DRenderer.js'
 
@@ -93,13 +92,11 @@ const initLight = function () {
   // 移动点光源
   pointLight = new THREE.PointLight(0xffffff, 0.8, 100);
   pointLight.position.set(50, 30, 50);
-  // const sphere = new THREE.SphereGeometry(0.5, 16, 8);
-  // pointLight.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xffaa00 })));
   lightGroup.add(pointLight);
 
-
+  if(dirLight) return
   dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-  dirLight.color = new THREE.Color("rgb(255, 255, 255)");
+  // dirLight.color = new THREE.Color("rgb(255, 255, 255)");
   dirLight.position.set(- 1, 1.75, 1);
   dirLight.position.multiplyScalar(30);
   lightGroup.add(dirLight);
