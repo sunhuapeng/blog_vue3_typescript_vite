@@ -13,10 +13,9 @@ const model = (mode) => loadEnv(mode, process.cwd())
 module.exports = ({ mode }) => {
   return defineConfig({
     base: model(mode).VITE_APP_NAME||'/',
-    // build: {
-    //   outDir: model(mode).VITE_APP_OUTDIR,
-    //   assetsDir: 'assets'
-    // },
+    build: {
+      assetsDir: 'assets'
+    },
     plugins: [
       vue({ include: [/\.vue$/, /\.md$/], }), 
       vueJsx(), 
