@@ -23,7 +23,7 @@ module.exports = ({ mode }) => {
     ],
     server: {
       host: 'localhost',
-      port: 3001,
+      port: 8080,
       // 是否开启 https
       https: false,
     },
