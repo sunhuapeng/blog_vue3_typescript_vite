@@ -24,8 +24,8 @@ export default defineComponent({
       name: '堆叠游戏',
       router: '/block'
     },{
-      name: '闪点效果',
-      router: '/light'
+      name: '满眼星星',
+      router: '/starrySky'
     }]
     const toPage = (path: string) => {
       if(path === '/html') {
