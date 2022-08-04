@@ -15,7 +15,7 @@ export default defineComponent({
     })
    
    watch(()=>route,()=>{
-    state.isHome = route.path === '/home'
+    state.isHome = route.path === '/home'||route.path === '/testPhone'
     console.log('home', state.isHome)
    },{ immediate: true, deep: true },)
     return () => (

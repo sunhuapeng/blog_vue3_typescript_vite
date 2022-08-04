@@ -1,6 +1,6 @@
-import { createSphereGeometry, createSprite } from './createMesh'
+import { createSphereGeometry, createSprite } from '../../utils/createMesh'
 
-import { scene, renderer, camera, rendAnimate, width, height } from './createThree'
+import { scene, renderer, camera, rendAnimate, width, height } from '../../utils/createThree'
 
 import { Vector3, Sprite, Group, Vector2, ShaderMaterial, Object3D } from 'three'
 

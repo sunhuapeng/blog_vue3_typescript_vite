@@ -1,6 +1,6 @@
 import { defineComponent, nextTick, reactive } from "vue";
 import './style.scss'
-import { create } from './createThree'
+import { create } from '../../utils/createThree'
 import {drawLight} from './drawLight'
 export default defineComponent({
   name: 'StarrySky',
